@@ -6,12 +6,14 @@ const cors = require("cors");
 const sequelize = require("./config/database");
 const authRoutes = require("./routes/authRoutes");
 const authMiddleware = require("./middleware/authMiddleware");
+const blogRoutes = require("./routes/blogRoutes");
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 app.use("/api/auth", authRoutes);
+app.use("/api/blogs", blogRoutes);
 
 app.get("/", (req, res) => {
   res.send("Blog Backend API running 🚀");
